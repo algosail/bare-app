@@ -1,0 +1,75 @@
+{
+  "name": "@algosail/bare-app",
+  "version": "0.1.0",
+  "description": "Toolkit for building native desktop applications with a Bare backend and a web-based UI.",
+  "license": "MIT",
+  "author": "algosail",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./runtime": {
+      "import": "./runtime/index.js"
+    },
+    "./client": {
+      "import": "./client/index.js"
+    }
+  },
+  "imports": {
+    "fs": {
+      "bare": "bare-fs",
+      "default": "fs"
+    },
+    "path": {
+      "bare": "bare-path",
+      "default": "path"
+    },
+    "url": {
+      "bare": "bare-url",
+      "default": "url"
+    }
+  },
+  "bin": {
+    "@algosail/bare-app": "bin.js"
+  },
+  "files": [
+    "bin.js",
+    "index.js",
+    "index.d.ts",
+    "builder",
+    "client",
+    "runtime"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/algosail/bare-app#readme",
+  "bugs": {
+    "url": "https://github.com/algosail/bare-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/algosail/bare-app.git"
+  },
+  "dependencies": {
+    "b4a": "^1.8.0",
+    "bare-console": "^6.1.0",
+    "bare-fs": "^4.5.5",
+    "bare-http1": "^4.2.3",
+    "bare-native": "^0.1.2",
+    "bare-path": "^3.0.0",
+    "bare-url": "^2.3.2",
+    "bare-ws": "^2.1.0"
+  },
+  "devDependencies": {
+    "bare-build": "^0.4.3",
+    "esbuild": "^0.27.3",
+    "node-html-parser": "^7.1.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
