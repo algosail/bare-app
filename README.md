@@ -7,7 +7,7 @@ Toolkit for building native desktop applications with a [Bare](https://github.co
 ## Install
 
 ```
-npm install -D bare-app
+npm install -D @algosail/bare-app
 ```
 
 ## Project structure
