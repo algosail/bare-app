@@ -1,6 +1,6 @@
 {
   "name": "@algosail/bare-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Toolkit for building native desktop applications with a Bare backend and a web-based UI.",
   "license": "MIT",
   "author": "algosail",
@@ -61,7 +61,8 @@
     "bare-native": "^0.1.2",
     "bare-path": "^3.0.0",
     "bare-url": "^2.3.2",
-    "bare-ws": "^2.1.0"
+    "bare-ws": "^2.1.0",
+    "paparam": "^1.10.0"
   },
   "devDependencies": {
     "bare-build": "^0.4.3",
