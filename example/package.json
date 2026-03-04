@@ -1,0 +1,25 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "imports": {
+    "#app": {
+      "default": "./.view/_app.js"
+    }
+  },
+  "bare": {
+    "icon": "icon.png"
+  },
+  "scripts": {
+    "dev": "bare-app dev",
+    "start": "bare-app start",
+    "build": "bare-app build --hosts darwin-arm64"
+  },
+  "dependencies": {
+    "@algosail/bare-app": "0.1.3",
+    "bare-rpc": "1.1.0"
+  }
+}

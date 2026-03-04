@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'DepartureMono';
+  src: url('./fonts/DepartureMono-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: black;
+  color: white;
+  font-family: 'DepartureMono', monospace;
+  margin: 0;
+}
+
+h1 {
+  color: white;
+  font-size: 3rem;
+  margin: 0 0 2rem;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+
+  &.android {
+    padding: 14px 0 12px;
+  }
+
+  &.ios {
+    height: 90vh;
+  }
+}
+
+.stats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.value {
+  font-size: 2rem;
+}
+
+.btn {
+  font-family: 'DepartureMono', monospace;
+  font-size: 1.25rem;
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: opacity 0.1s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.log {
+  margin-top: 2rem;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.log-entry {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  white-space: nowrap;
+}

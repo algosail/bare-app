@@ -7,8 +7,10 @@ Toolkit for building native desktop applications with a [Bare](https://github.co
 ## Install
 
 ```
-npm install -D @algosail/bare-app
+npm install @algosail/bare-app
 ```
+
+> **Note:** Install as a regular dependency, not `devDependency`. `bare-build` traverses `dependencies` to discover native addons to link into the app bundle — if `@algosail/bare-app` is in `devDependencies`, its transitive native addons (e.g. `bare-dns`) will be missing from the built app.
 
 ## Project structure
 
