@@ -1,9 +1,8 @@
 import b4a from 'b4a'
 
-const WS_PORT = 8080
-
 export const connect = () => {
-  const url = `ws://localhost:${WS_PORT}`
+  const icpPort = new URL(location.href).searchParams.get('icp')
+  const url = `ws://localhost:${icpPort}`
   const handlers = {}
 
   function on(name, fn) {

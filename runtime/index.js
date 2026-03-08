@@ -3,27 +3,29 @@ import Console from 'bare-console'
 import { Window, WebView } from 'bare-native'
 import { startViewServer } from './viewServer.js'
 
-const WS_PORT = 8080
-
 const console = new Console()
+
+const startIcpServer = () =>
+  new Promise((resolve) => {
+    const icp = new ws.Server({ port: 0 })
+    icp.on('listening', () => resolve(icp))
+  })
 
 export const init = async (opts = {}) => {
   const {
     width = 800,
     height = 600,
-    icpPort = WS_PORT,
     viewMap,
     dev = false,
     devURL = null,
   } = opts
 
   // IPC WebSocket server — bridges Bare and the WebView
-  const icp = new ws.Server({ port: icpPort })
+  const icp = await startIcpServer()
+  const icpPort = icp.address().port
   const sockets = new Set()
 
-  icp.on('listening', () => {
-    console.log(`IPC server started on ws://localhost:${icpPort}`)
-  })
+  console.log(`IPC server started on ws://localhost:${icpPort}`)
 
   icp.on('connection', (socket) => {
     sockets.add(socket)
@@ -47,12 +49,12 @@ export const init = async (opts = {}) => {
   let viewServer = null
   if (dev && devURL) {
     console.log(`Loading dev server at ${devURL}...`)
-    webView.loadURL(devURL)
+    webView.loadURL(`${devURL}?icp=${icpPort}`)
   } else {
     viewServer = await startViewServer(viewMap)
     const address = viewServer.address()
     console.log(`View server address:`, address)
-    webView.loadURL(`http://localhost:${address.port}`)
+    webView.loadURL(`http://localhost:${address.port}?icp=${icpPort}`)
   }
 
   const close = () => {
